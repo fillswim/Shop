@@ -12,5 +12,10 @@ pipeline {
                 sh 'docker pull hello-world'
             }
         }
+        stage('2-Run') {
+            steps {
+                sh 'docker run hello-world'
+            }
+        }
     }
 }
