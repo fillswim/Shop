@@ -1,12 +1,15 @@
 pipeline {
+//     agent {
+//         docker { image 'hello-world:latest'}
+//     }
     agent {
-        docker { image 'hello-world:latest'}
+        label 'master'
     }
 
     stages {
-        stage('1-Build') {
+        stage('1-Pull') {
             steps {
-                sh 'docker run hello-world'
+                sh 'docker pull hello-world'
             }
         }
     }
