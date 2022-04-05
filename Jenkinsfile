@@ -7,15 +7,23 @@ pipeline {
     }
 
     stages {
-        stage('1-Pull') {
+        stage('Docker login') {
             steps {
-                sh 'docker pull hello-world'
+                 echo " ============== docker login =================="
+                 withCredentials([usernamePassword(credentialsId: 'DockerHub-fillswim', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                    sh 'docker login -u $USERNAME -p $PASSWORD'
+                 }
             }
         }
-        stage('2-Run') {
-            steps {
-                sh 'docker run hello-world'
-            }
-        }
+//         stage('1-Pull') {
+//             steps {
+//                 sh 'docker pull hello-world'
+//             }
+//         }
+//         stage('2-Run') {
+//             steps {
+//                 sh 'docker run hello-world'
+//             }
+//         }
     }
 }
