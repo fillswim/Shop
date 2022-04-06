@@ -17,8 +17,8 @@ pipeline {
         stage('Docker login') {
             steps {
                  echo " ============== docker login =================="
-                 sh 'whoami'
-//                  sh 'cat /home/ubuntu/docker_password.txt | docker login --username fillswim --password-stdin'
+//                  sh 'whoami'
+                 sh 'cat /home/ubuntu/docker_password.txt | docker login --username fillswim --password-stdin'
 //                  withCredentials([usernamePassword(credentialsId: 'DockerHub-fillswim', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
 //                     sh 'docker login -u $USERNAME -p $PASSWORD'
 //                  }
