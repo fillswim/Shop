@@ -12,6 +12,7 @@ services:
 
   my-web:
     build: ./
+    image: 'fillswim/shop'
     container_name: 'MyAppContainer'
     ports:
       - "8080:8080"
