@@ -7,6 +7,13 @@ pipeline {
     }
 
     stages {
+        stage('Build') {
+            steps {
+                echo " ============== build =================="
+                sh 'mvn clean package'
+            }
+        }
+
         stage('Docker login') {
             steps {
                  echo " ============== docker login =================="
