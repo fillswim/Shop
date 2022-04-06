@@ -3,7 +3,7 @@ pipeline {
 //         docker { image 'hello-world:latest'}
 //     }
     agent {
-        label 'master'
+        label 'maven'
     }
 
     stages {
