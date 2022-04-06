@@ -14,6 +14,14 @@ pipeline {
             }
         }
 
+        stage('Create Docker-Compose') {
+            steps {
+                echo " ============== Create Docker-Compose =================="
+                sh 'docker-compose up --force-recreate --no-start'
+            }
+        }
+
+
         stage('Docker login') {
             steps {
                  echo " ============== docker login =================="
