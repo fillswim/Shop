@@ -1,7 +1,4 @@
 pipeline {
-//     agent {
-//         docker { image 'hello-world:latest'}
-//     }
     agent {
         label 'maven'
     }
@@ -21,17 +18,22 @@ pipeline {
             }
         }
 
-
         stage('Docker login') {
             steps {
-                 echo " ============== docker login =================="
+                echo " ============== Docker login =================="
 //                  sh 'whoami'
-                 sh 'cat /home/ubuntu/docker_password.txt | docker login --username fillswim --password-stdin'
-//                  withCredentials([usernamePassword(credentialsId: 'DockerHub-fillswim', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-//                     sh 'docker login -u $USERNAME -p $PASSWORD'
-//                  }
+                sh 'cat /home/ubuntu/docker_password.txt | docker login --username fillswim --password-stdin'
             }
         }
+
+        stage('Push') {
+            steps {
+                echo " ============== Docker push =================="
+                sh 'docker-compose push'
+            }
+        }
+
+
 //         stage('1-Pull') {
 //             steps {
 //                 sh 'docker pull hello-world'
