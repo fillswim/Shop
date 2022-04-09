@@ -32,7 +32,7 @@ pipeline {
 //                sh 'docker-compose push my-database my-web'
 //                sh 'docker-compose push my-web'
                 sh 'docker push fillswim/shop:latest'
-                sh 'docker push postgres:13'
+//                sh 'docker push postgres:13'
 
             }
         }
