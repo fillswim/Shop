@@ -29,7 +29,8 @@ pipeline {
         stage('Push') {
             steps {
                 echo "============== Docker push =================="
-                sh 'docker-compose push my-database my-web'
+//                sh 'docker-compose push my-database my-web'
+                sh 'docker-compose push my-web'
             }
         }
     }
