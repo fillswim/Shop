@@ -41,7 +41,7 @@ pipeline {
 
         stage('Docker run') {
             steps {
-                echo "======== Docker run! ========"
+                echo "======== Docker run ========"
                 sh 'docker-compose run --name MyAppContainer --rm --detach --publish 8080:8080 my-web'
             }
         }
