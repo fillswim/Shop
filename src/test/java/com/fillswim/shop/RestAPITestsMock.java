@@ -14,7 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,6 +31,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
+@ActiveProfiles("test")
+@Transactional
 @SpringBootTest
 @AutoConfigureMockMvc
 public class RestAPITestsMock {
@@ -91,12 +95,6 @@ public class RestAPITestsMock {
         verify(mockRepository, times(1)).findById(1);
     }
 
-//    @Test
-//    public void getGood_404NotFound() throws Exception {
-//
-//        mockMvc.perform(get("/api/goods/100"))
-//                .andExpect(status().isNotFound());
-//    }
 
     @Test
     public void addNewGood_200Ok() throws Exception {
