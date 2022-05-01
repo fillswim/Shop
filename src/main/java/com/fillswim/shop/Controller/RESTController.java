@@ -53,7 +53,7 @@ public class RESTController {
     public String deleteGood(@PathVariable int id) {
 
         goodService.deleteGood(id);
-        String result = "Good with id = " + id + " was deleted!!!";
+        String result = "Good with id = " + id + " was deleted!";
 
         return result;
     }
